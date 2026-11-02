@@ -26,7 +26,7 @@ const inputNota2 = document.querySelector("#nota2");
     }
 
     const media = (nota1 + nota2) / 2;
-    let situacao = "";
+    let situacao = ""
 
     if (media >= 7) {
       situacao = "Aprovado";
@@ -36,4 +36,20 @@ const inputNota2 = document.querySelector("#nota2");
 
     alert(`${inputNome.value}, a sua média é ${media.toFixed(1)}. Situação: ${situacao}!`);
   });
+
+  function limitarNota(input) {
+    input.addEventListener("input", function () {
+      let valor = parseFloat(input.value);
+
+      if (valor > 10) {
+        input.value = 10;
+      } else if (valor < 0) {
+        input.value = 0;
+      }
+    });
+  }
+
+  limitarNota(inputNota1);
+  limitarNota(inputNota2);
+
 };
