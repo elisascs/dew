@@ -5,6 +5,7 @@ const blocoNotas = document.querySelector("#blocoNotas");
 const btnCalcular = document.querySelector("#calcular");
 const inputNota1 = document.querySelector("#nota1");
 const inputNota2 = document.querySelector("#nota2");
+const inputNota3 = document.querySelector("#nota3");
 
   // Botão para mostrar os campos das notas
   btnAvancar.addEventListener("click", function () {
@@ -19,13 +20,14 @@ const inputNota2 = document.querySelector("#nota2");
   btnCalcular.addEventListener("click", function () {
     const nota1 = parseFloat(inputNota1.value);
     const nota2 = parseFloat(inputNota2.value);
+    const nota3 = parseFloat(inputNota3.value);
 
-    if (isNaN(nota1) || isNaN(nota2)) {
-      alert("Por favor, preencha as duas notas antes de calcular.");
+    if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+      alert("Por favor, preencha as três notas antes de calcular.");
       return;
     }
 
-    const media = (nota1 + nota2) / 2;
+    const media = (nota1 + nota2 + nota3) / 3;
     let situacao = ""
 
     if (media >= 7) {
@@ -51,5 +53,6 @@ const inputNota2 = document.querySelector("#nota2");
 
   limitarNota(inputNota1);
   limitarNota(inputNota2);
+  limitarNota(inputNota3);
 
 };
